@@ -8,54 +8,6 @@ GradeCalculator::GradeCalculator(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //Qlabel *windowTitle= new Qlabel("Grade Calculator");
-
-    /*
-    QWidget *window = new QWidget;
-    QPushButton *button1 = new QPushButton("One");
-    QLineEdit *lineEdit1 = new QLineEdit();
-    QPushButton *button2 = new QPushButton("Two");
-    QLineEdit *lineEdit2 = new QLineEdit();
-    QPushButton *button3 = new QPushButton("Three");
-    QLineEdit *lineEdit3 = new QLineEdit();
-
-    QFormLayout *layout = new QFormLayout;
-    layout->addRow(button1, lineEdit1);
-    layout->addRow(button2, lineEdit2);
-    layout->addRow(button3, lineEdit3);
-
-    window->setLayout(layout);
-    window->show();
-    */
-
-    /*
-    QSpinBox *HW1_spinBox = new QSpinBox();
-    QSpinBox *HW2_spinBox = new QSpinBox();
-    QSpinBox *HW3_spinBox = new QSpinBox();
-    QSpinBox *HW4_spinBox = new QSpinBox();
-    QSpinBox *HW5_spinBox = new QSpinBox();
-    QSpinBox *HW6_spinBox = new QSpinBox();
-    QSpinBox *HW7_spinBox = new QSpinBox();
-    QSpinBox *HW8_spinBox = new QSpinBox();
-
-    QSpinBox *Midterm1_spinBox = new QSpinBox();
-    QSpinBox *Midterm2_spinBox = new QSpinBox();
-    QSpinBox *Final_spinBox = new QSpinBox();
-
-    QSlider(Qt::Horizontal) *HW1_HorzSlider = new QSlider(Qt::Horizontal);
-    QSlider(Qt::Horizontal) *HW2_HorzSlider = new QSlider(Qt::Horizontal);
-    QSlider(Qt::Horizontal) *HW3_HorzSlider = new QSlider(Qt::Horizontal);
-    QSlider(Qt::Horizontal) *HW4_HorzSlider = new QSlider(Qt::Horizontal);
-    QSlider(Qt::Horizontal) *HW5_HorzSlider = new QSlider(Qt::Horizontal);
-    QSlider(Qt::Horizontal) *HW6_HorzSlider = new QSlider(Qt::Horizontal);
-    QSlider(Qt::Horizontal) *HW7_HorzSlider = new QSlider(Qt::Horizontal);
-    QSlider(Qt::Horizontal) *HW8_HorzSlider = new QSlider(Qt::Horizontal);
-
-    QSlider(Qt::Horizontal) *Midterm1_HorzSlider = new QSlider(Qt::Horizontal);
-    QSlider(Qt::Horizontal) *Midterm2_HorzSlider = new QSlider(Qt::Horizontal);
-    QSlider(Qt::Horizontal) *Final_HorzSlider = new QSlider(Qt::Horizontal);
-    */
-
     // connect horizontal sliders to spinboxes
     connect(ui->HW1_HorzSlider,SIGNAL(valueChanged(int)),
             ui->HW1_spinBox,SLOT(setValue(int)));
@@ -169,25 +121,6 @@ GradeCalculator::~GradeCalculator()
 
 
 void GradeCalculator::update_overall(int){
-    //set score to 0 if no scheme is chosen
-    /*
-    if ((!schA)&&(!schB)){
-        ui->Score_label->setNum(0);
-        return;
-    }
-    */
-/*
-    QVector<*QSpinBox> HWspinBoxes(8);
-
-    HWspinBoxes.push_back(*(ui->HW1_spinBox));
-    HWspinBoxes.push_back(*(ui->HW2_spinBox));
-    HWspinBoxes.push_back(*(ui->HW3_spinBox));
-    HWspinBoxes.push_back(*(ui->HW4_spinBox));
-    HWspinBoxes.push_back(*(ui->HW5_spinBox));
-    HWspinBoxes.push_back(*(ui->HW6_spinBox));
-    HWspinBoxes.push_back(*(ui->HW7_spinBox));
-    HWspinBoxes.push_back(*(ui->HW8_spinBox));
-*/
 
     int minScore = 0; // find minimum homework score
     int hw_total = 0; // calculate total HW score (with 7 highest of 8 grades)
@@ -248,6 +181,7 @@ void GradeCalculator::update_overall(int){
         //display scoreB
         ui->Score_label->setNum(scoreB);
     }
+    // set score to 0.0 if no scheme is chosen
     else{
         ui->Score_label->setNum(0.0);
     }
